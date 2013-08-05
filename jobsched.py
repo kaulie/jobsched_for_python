@@ -21,10 +21,8 @@ from apps.asyn import logger_constructor, logger_constructor_2
 from framework.util.aiddplatform import DEBUG
 from apps.asyn.jobconf import get_all_jobs
 
-if DEBUG:
-    j_logger = logger_constructor_2('jobsched_logger','/home/gl/logs/jobsched.log')
-else:
-    j_logger = logger_constructor_2('jobsched_logger','/data/logs/aidd/asyn_log/jobsched.log')
+#配置logger
+j_logger = logger_constructor_2('jobsched_logger','../jobsched.log')
 
 #job 运行状态码
 JOB_STATUS = 0    
