@@ -47,6 +47,9 @@ def schedule_interval_job(name,fn,interval):
     asyn_job = Interval_Job(name,fn,interval)
     GLOBAL_JOB_POOL.add_job(asyn_job)
 
+#以下为job配置
+#方式1：基于语句的导入
+#方式2：配置文件
 #根据配置，动态导入
 exec "from apps.asyn.asynevent import asyn_event_process"
 #exec "from apps.asyn.asynsalegoods import asyn_salegoods_process"
