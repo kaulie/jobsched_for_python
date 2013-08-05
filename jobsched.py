@@ -17,7 +17,7 @@ from multiprocessing.process import Process
 from multiprocessing import Value
 import signal
 import subprocess
-from framework.util.aiddplatform import DEBUG
+import logging
 from apps.asyn.jobconf import get_all_jobs
 
 def logger_constructor(logger_name,filename):
