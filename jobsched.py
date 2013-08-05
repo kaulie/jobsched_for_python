@@ -17,12 +17,21 @@ from multiprocessing.process import Process
 from multiprocessing import Value
 import signal
 import subprocess
-from apps.asyn import logger_constructor, logger_constructor_2
 from framework.util.aiddplatform import DEBUG
 from apps.asyn.jobconf import get_all_jobs
 
+def logger_constructor(logger_name,filename):
+    logger = logging.getLogger(logger_name)
+    hdlr = logging.FileHandler(filename)
+    formatter = logging.Formatter(u'[%(asctime)s]%(levelname)-8s"%(message)s"','%Y-%m-%d %a %H:%M:%S')
+    hdlr.setFormatter(formatter)
+    logger.addHandler(hdlr)
+    logger.setLevel(logging.INFO)
+
+    return logger
+
 #配置logger
-j_logger = logger_constructor_2('jobsched_logger','../jobsched.log')
+j_logger = logger_constructor('jobsched_logger','../jobsched.log')
 
 #job 运行状态码
 JOB_STATUS = 0    
